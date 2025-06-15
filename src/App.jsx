@@ -1,14 +1,40 @@
-import styled from "styled-components";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Location from "./pages/Location";
+import Contact from "./pages/Contact";
+import PageNotFound from "./pages/PageNotFound";
+import GlobalStyles from "./styles/GlobalStyles";
 
-const StyledApp = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  font-size: 2rem;
-  font-weight: 800;
-`;
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+
+  {
+    path: "about",
+    element: <About />,
+  },
+  {
+    path: "location",
+    element: <Location />,
+  },
+  {
+    path: "contact",
+    element: <Contact />,
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
+  },
+]);
 
 export default function App() {
-  return <StyledApp>DESIGNO WEBSITE</StyledApp>;
+  return (
+    <>
+      <GlobalStyles />
+      <RouterProvider router={router} />
+    </>
+  );
 }
