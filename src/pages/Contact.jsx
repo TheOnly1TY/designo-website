@@ -1,11 +1,22 @@
 import { MainFooter } from "../ui/footer/MainFooter";
+import { LocationSection } from "../ui/LocationSection";
 import Navbar from "../ui/Navbar";
+import { Container } from "./Location";
 
 export default function Contact() {
   return (
     <section>
-      <Navbar />
-      <MainFooter />
+      <header>
+        <Container>
+          <Navbar />
+        </Container>
+      </header>
+      <main>
+        <Container>
+          <LocationSection />
+        </Container>
+      </main>
+      {/* <MainFooter /> */}
     </section>
   );
 }

@@ -8,7 +8,7 @@ const GlobalStyles = createGlobalStyle`
   --color-black: hsl(270, 3%, 11%);
   --color-white: hsl(0, 0%, 100%);
   --color-light-peach: hsl(11, 100%, 80%);
-  --color-dark-grey: hsl(264, 5%, 20%);
+  --color-dark-grey: hsl(260, 5.90%, 20.00%);
   --color-light-grey: hsl(210, 17%, 95%);
 
   /* FONTS SIZES */
