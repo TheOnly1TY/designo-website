@@ -1,9 +1,11 @@
+import { MainFooter } from "../ui/footer/MainFooter";
 import Navbar from "../ui/Navbar";
 
 export default function Contact() {
   return (
     <section>
       <Navbar />
+      <MainFooter />
     </section>
   );
 }
@@ -30,15 +32,3 @@ export default function Contact() {
 
 // United Kingdom
 // See location
-
-// Our company
-// Locations
-// Contact
-
-// Designo Central Office
-// 3886 Wellington Street
-// Toronto, Ontario M9C 3J5
-
-// Contact Us (Central Office)
-// P : +1 253-863-8967
-// M : contact@designo.co

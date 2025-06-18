@@ -1,9 +1,11 @@
+import { MainFooter } from "../ui/footer/MainFooter";
 import Navbar from "../ui/Navbar";
 
 export default function About() {
   return (
     <section>
       <Navbar />
+      <MainFooter />
     </section>
   );
 }

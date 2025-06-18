@@ -17,6 +17,7 @@ const GlobalStyles = createGlobalStyle`
   --font-medium: 2.5rem;
   --font-regular: 1.25rem;
   --font-small: 1rem;
+
 }
 
 * {
@@ -25,13 +26,42 @@ const GlobalStyles = createGlobalStyle`
   box-sizing: border-box;
 }
 
-body {
+html, body {
   background-color: var(--color-white);
   font-family: "Jost", sans-serif;
-  max-width: 69.4375rem;
+  scroll-behavior: smooth;
+  transition: all 0.3s ;
+  
+}
+header, main{
+  max-width: 73rem;
   margin: 0 auto;
 }
 
+  @media (max-width: 600px) {
+    main{
+      margin-bottom: 15rem;
+    }
+  }
+  @media (min-width: 601px) and (max-width: 1062px) {
+       main{
+      margin-bottom: 10rem;
+    }
+  }
+    @media (min-width: 1063px)  {
+    main{
+      margin-bottom: 15rem;
+    }
+  }
+
+
+button:hover{
+  background-color: var(--color-light-peach);
+  color: white;
+}
+li{
+  list-style: none;
+}
 `;
 
 export default GlobalStyles;

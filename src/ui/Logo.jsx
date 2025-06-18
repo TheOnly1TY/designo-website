@@ -1,8 +1,12 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-const StyledLogoImage = styled.img`
+export const StyledLogoImage = styled.img`
   width: 12.25rem;
+
+  @media (max-width: var(--small-screen)) {
+    width: 12.625rem;
+  }
 `;
 
 export function Logo() {
