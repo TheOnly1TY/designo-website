@@ -1,16 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/home/Home";
-import About from "./pages/About";
 import Location from "./pages/Location";
 import Contact from "./pages/Contact";
 import PageNotFound from "./pages/PageNotFound";
 import GlobalStyles from "./styles/GlobalStyles";
+import About from "./pages/about/AboutPage";
+import { Design } from "./pages/designPage/Design";
+import ScrollToTop from "./ui/ScrollToTop";
 
 function RoutePages() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path=":designType" element={<Design />} />
         <Route path="about" element={<About />} />
         <Route path="location" element={<Location />} />
         <Route path="contact" element={<Contact />} />

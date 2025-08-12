@@ -9,7 +9,7 @@ export const StyledSection = styled.section`
   flex-direction: column;
 
   @media (max-width: 600px) {
-    margin: 0 1.5rem;
+    margin: 0 1.5rem 13rem 1.5rem;
     row-gap: 5rem;
   }
 
@@ -20,7 +20,7 @@ export const StyledSection = styled.section`
 
   @media (min-width: 1063px) {
     flex-direction: row;
-    margin: 0 2rem;
+    margin: 8rem 2rem 0 2rem;
     margin-bottom: 1rem; // temporary margin
   }
 `;

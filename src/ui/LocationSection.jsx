@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
-import { Button } from "../pages/home/styles/heroSecion.styled";
 import styled, { css } from "styled-components";
+
+import { Button } from "../pages/home/styles/heroSecion.styled";
 
 const StyledSection = styled.section`
   display: flex;

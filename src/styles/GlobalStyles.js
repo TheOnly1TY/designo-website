@@ -29,7 +29,6 @@ const GlobalStyles = createGlobalStyle`
 html, body {
   background-color: var(--color-white);
   font-family: "Jost", sans-serif;
-  scroll-behavior: smooth;
   transition: all 0.3s ;
   
 }
@@ -38,23 +37,10 @@ header, main{
   margin: 0 auto;
 }
 
-  @media (max-width: 600px) {
-    main{
-      margin-bottom: 15rem;
-    }
-  }
-  @media (min-width: 601px) and (max-width: 1062px) {
-       main{
-      margin-bottom: 10rem;
-    }
-  }
-    @media (min-width: 1063px)  {
-    main{
-      margin-bottom: 15rem;
-    }
-  }
-
-
+button {
+cursor: pointer;
+transition: 0.3s ease-in-out;
+}
 button:hover{
   background-color: var(--color-light-peach);
   color: white;

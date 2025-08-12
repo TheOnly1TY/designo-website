@@ -58,6 +58,10 @@ const StyledNavLink = styled(NavLink)`
   line-height: 0.875rem;
   color: var(--color-dark-grey);
 
+  &:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 600px) {
     font-size: 1.5rem;
     line-height: 25px;

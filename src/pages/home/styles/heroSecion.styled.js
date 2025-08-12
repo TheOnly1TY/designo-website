@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled, { css } from "styled-components";
 
 export const HeroSection = styled.div`
@@ -26,7 +27,7 @@ export const HeroSection = styled.div`
     padding-top: 5rem;
     flex-direction: column;
     max-width: 786px;
-    margin: 0 auto;
+    margin: 0 auto 8rem auto;
   }
 
   @media (min-width: 1063px) {
@@ -41,7 +42,7 @@ export const HeroSection = styled.div`
   }
 `;
 
-export const HeroContent = styled.div`
+export const HeroContent = styled(motion.div)`
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -85,8 +86,13 @@ export const Heading = styled.h1`
   }
 
   @media (min-width: 601px) and (max-width: 1062px) {
-    margin-left: auto;
-    margin-right: auto;
+    ${(props) =>
+      props.type === "heroMargin" &&
+      css`
+        margin-left: auto;
+        margin-right: auto;
+      `};
+
     max-width: 573px;
   }
 `;

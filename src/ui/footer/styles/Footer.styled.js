@@ -61,6 +61,10 @@ export const StyledNavLink = styled(Link)`
   color: white;
   text-transform: uppercase;
   text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const StyledContactInfo = styled.div`

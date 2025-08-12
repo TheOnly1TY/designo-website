@@ -105,6 +105,12 @@ const LocationInfo = styled(Address)`
   opacity: 1;
 `;
 
+const Main = styled.main`
+  @media (min-width: 601px) {
+    margin-bottom: 15rem;
+  }
+`;
+
 export default function Location() {
   return (
     <section>
@@ -113,7 +119,7 @@ export default function Location() {
           <Navbar />
         </Container>
       </header>
-      <main>
+      <Main>
         <Container>
           <StyledLocation>
             <StyledLocationMap src="/locations/desktop/image-map-canada.png" />
@@ -182,7 +188,7 @@ export default function Location() {
             </LocationContainer>
           </StyledLocation>
         </Container>
-      </main>
+      </Main>
       <MainFooter />
     </section>
   );

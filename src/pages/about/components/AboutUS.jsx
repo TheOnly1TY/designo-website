@@ -1,9 +1,6 @@
 import styled from "styled-components";
-import { MainFooter } from "../ui/footer/MainFooter";
-import { LocationSection } from "../ui/LocationSection";
-import Navbar from "../ui/Navbar";
-import { Heading, Paragraph } from "./home/styles/heroSecion.styled";
-import { Container } from "./Location";
+import { Heading, Paragraph } from "../../home/styles/heroSecion.styled";
+import { Source } from "./Layout";
 
 const StyledSection = styled.div`
   display: flex;
@@ -26,7 +23,6 @@ const StyledSection = styled.div`
     max-width: 786px;
     margin: 0 auto;
     flex-direction: column;
-    /* border-radius: 0; */
   }
 `;
 
@@ -65,7 +61,6 @@ const AboutContent = styled.div`
     order: 1;
     height: 50%;
     text-align: center;
-    /* padding: 4rem 1.5rem; */
   }
 `;
 
@@ -78,26 +73,7 @@ const AboutText = styled(Paragraph)`
   }
 `;
 
-export default function About() {
-  return (
-    <section>
-      <header>
-        <Container>
-          <Navbar />
-        </Container>
-      </header>
-      <main>
-        <Container>
-          <AboutUsSection />
-          <LocationSection />
-        </Container>
-      </main>
-      <MainFooter />
-    </section>
-  );
-}
-
-function AboutUsSection() {
+export function AboutUsSection() {
   return (
     <StyledSection>
       <AboutContent>
@@ -111,12 +87,12 @@ function AboutUsSection() {
         </AboutText>
       </AboutContent>
       <StyledImage>
-        <source
+        <Source
           srcset="/about/desktop/image-about-hero.jpg"
           media="(min-width: 1063px)"
         />
 
-        <source
+        <Source
           srcset="/about/tablet/image-about-hero.jpg"
           media="(min-width: 601px)"
         />
@@ -126,20 +102,3 @@ function AboutUsSection() {
     </StyledSection>
   );
 }
-// World-class talent
-// We are a crew of strategists, problem-solvers, and technologists. Every design is thoughtfully
-// crafted from concept to launch, ensuring success in its given market. We are constantly updating
-// our skills in a myriad of platforms.
-
-// Our team is multi-disciplinary and we are not merely interested in form — content and meaning
-// are just as important. We give great importance to craftsmanship, service, and prompt delivery.
-// Clients have always been impressed with our high-quality outcomes that encapsulates their
-// brand’s story and mission.
-
-// The real deal
-// As strategic partners in our clients’ businesses, we are ready to take on any challenge as our own.
-// Solving real problems require empathy and collaboration, and we strive to bring a fresh perspective to every
-// opportunity. We make design and technology more accessible and give you tools to measure success.
-
-// We are visual storytellers in appealing and captivating ways. By combining business and marketing strategies,
-// we inspire audiences to take action and drive real results.

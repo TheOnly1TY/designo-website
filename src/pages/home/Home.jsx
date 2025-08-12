@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import Navbar from "../../ui/Navbar";
 import { CoreValuesSection } from "./components/CoreValuesSection";
+import { ProjectHighlight } from "./ProjectHighlight";
 import { MainFooter } from "../../ui/footer/MainFooter";
 import {
   BrandImage,
@@ -15,12 +16,21 @@ import {
   StyledOverlay,
 } from "./styles/heroSecion.styled";
 
-const Container = styled.div`
+export const Container = styled.div`
   @media (min-width: 601px) and (max-width: 1062px) {
     margin: 0 1.5rem;
   }
-  @media (min-width: 1024px) {
+  @media (min-width: 1063px) {
     margin: 0 2rem;
+  }
+`;
+
+const Main = styled.main`
+  @media (min-width: 601px) and (max-width: 1062px) {
+    margin-bottom: 10rem;
+  }
+  @media (min-width: 1063px) {
+    margin-bottom: 15rem;
   }
 `;
 
@@ -32,7 +42,11 @@ export default function Home() {
         <Container>
           <Navbar isNavOpen={isNavOpen} onNavOpen={setIsNavOpen} />
           <HeroSection>
-            <HeroContent>
+            <HeroContent
+              initial={{ x: -100 }}
+              animate={{ x: 0 }}
+              transition={{ duration: 1 }}
+            >
               <Heading as="h1" type="heroMargin">
                 Award-winning custom designs and digital branding solutions
               </Heading>
@@ -52,9 +66,10 @@ export default function Home() {
           </HeroSection>
         </Container>
       </header>
-      <main>
+      <Main>
+        <ProjectHighlight />
         <CoreValuesSection />
-      </main>
+      </Main>
       <MainFooter />
     </section>
   );
