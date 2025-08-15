@@ -1,4 +1,5 @@
-import styled from "styled-components";
+import { motion } from "motion/react";
+import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
   @media (max-width: 600px) {
@@ -12,14 +13,33 @@ export const StyledSection = styled.section`
   }
 `;
 
-export const StyledHeading = styled.div`
+export const StyledHeading = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   flex-direction: column;
   gap: 24px;
-  background-color: var(--color-peach);
+
+  ${(props) =>
+    props.type === "Web Design" &&
+    css`
+      background: url("/web-design/desktop/bg-pattern-intro-web.svg")
+        var(--color-peach);
+    `}
+  ${(props) =>
+    props.type === "App Design" &&
+    css`
+      background: url("/app-design/desktop/bg-pattern-intro-app.svg")
+        var(--color-peach);
+    `}
+      ${(props) =>
+    props.type === "Graphic Design" &&
+    css`
+      background: url("/graphic-design/desktop/bg-pattern-intro-graphic.svg")
+        var(--color-peach);
+    `}
+  background-position: 50%;
 
   @media (max-width: 600px) {
     padding: 2rem 1.5rem;
@@ -45,6 +65,17 @@ export const StyledProjectItem = styled.div`
   border-radius: 15px;
   overflow: hidden;
   cursor: pointer;
+
+    &:hover {
+    background-color: var(--color-peach);
+
+       h3, p {
+      color: white;
+    }
+
+    transition: all 0.2s ease-in-out;
+  }
+
 
   @media (max-width: 600px) {
     margin: 0 auto;

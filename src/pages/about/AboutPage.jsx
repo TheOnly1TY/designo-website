@@ -36,6 +36,7 @@ export default function About() {
 function WorldClassTalent() {
   return (
     <Layout
+      position="100"
       id="1"
       image="image-world-class-talent.jpg"
       title="World-class talent"
@@ -55,6 +56,7 @@ function WorldClassTalent() {
 function RealDeal() {
   return (
     <Layout
+      position="-100"
       id="2"
       image="image-real-deal.jpg"
       title="The real deal"

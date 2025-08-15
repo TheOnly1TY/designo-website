@@ -1,6 +1,7 @@
 import styled, { css } from "styled-components";
 import { Logo } from "./Logo";
 import { NavLink } from "react-router-dom";
+import { useNavbar } from "./navbar/NavBarContext";
 
 const StyledNav = styled.nav`
   position: relative;
@@ -77,14 +78,27 @@ const StyledNavIcon = styled.figure`
     display: none;
   }
 `;
-export default function Navbar({ isNavOpen, onNavOpen }) {
-  const handleIsNavOpen = () => {
-    onNavOpen(!isNavOpen);
-  };
+
+const NavList = [
+  {
+    pathname: "about",
+    name: "Our Company",
+  },
+  {
+    pathname: "location",
+    name: "Locations",
+  },
+  {
+    pathname: "contact",
+    name: "Contact",
+  },
+];
+export default function Navbar() {
+  const { isNavOpen, handleNavToggle } = useNavbar();
   return (
     <StyledNav>
       <Logo />
-      <StyledNavIcon onClick={handleIsNavOpen}>
+      <StyledNavIcon onClick={handleNavToggle}>
         {!isNavOpen ? (
           <img src="/shared/mobile/icon-hamburger.svg" alt="open nav icon" />
         ) : (
@@ -92,15 +106,16 @@ export default function Navbar({ isNavOpen, onNavOpen }) {
         )}
       </StyledNavIcon>
       <StyledNavList type={`${isNavOpen ? "open" : "close"}`}>
-        <li>
-          <StyledNavLink to="/about">Our Company</StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/location">Locations</StyledNavLink>
-        </li>
-        <li>
-          <StyledNavLink to="/contact">Contact</StyledNavLink>
-        </li>
+        {NavList.map((navitem) => (
+          <li>
+            <StyledNavLink
+              to={`/${navitem.pathname}`}
+              onClick={handleNavToggle}
+            >
+              {navitem.name}
+            </StyledNavLink>
+          </li>
+        ))}
       </StyledNavList>
     </StyledNav>
   );

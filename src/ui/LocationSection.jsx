@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
+import { motion } from "motion/react";
 import styled, { css } from "styled-components";
+import { useInView } from "react-intersection-observer";
 
 import { Button } from "../pages/home/styles/heroSecion.styled";
 
@@ -17,19 +19,26 @@ const StyledSection = styled.section`
 `;
 
 export function LocationSection() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.3,
+  });
   return (
-    <StyledSection>
+    <StyledSection ref={ref}>
       <LocationItem
+        inView={inView}
         imgPath="/shared/desktop/illustration-canada.svg"
         id="1"
         place="Canada"
       />
       <LocationItem
+        inView={inView}
         id="2"
         imgPath="/shared/desktop/illustration-australia.svg"
         place="Australia"
       />
       <LocationItem
+        inView={inView}
         id="3"
         imgPath="/shared/desktop/illustration-united-kingdom.svg"
         place="United Kingdom"
@@ -78,16 +87,25 @@ const StyledImage = styled.div`
     css`background:linear-gradient(to bottom, rgba(93, 2, 2, 0) 0%, rgba(93, 2, 2, 0.1))}`}
 `;
 
-const StyledLocation = styled.div`
+const StyledLocation = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 `;
 
-function LocationItem({ id, place, imgPath }) {
+function LocationItem({ id, place, imgPath, inView }) {
+  const containerVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: { opacity: 1, y: 0 },
+  };
   return (
-    <StyledLocation>
+    <StyledLocation
+      variants={containerVariants}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      transition={{ duration: 0.6 * id }}
+    >
       <StyledImage type={`img${id}`}>
         <img src={imgPath} />
       </StyledImage>

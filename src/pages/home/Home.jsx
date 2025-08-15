@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Navbar from "../../ui/Navbar";
 import { CoreValuesSection } from "./components/CoreValuesSection";
-import { ProjectHighlight } from "./ProjectHighlight";
+import { ProjectHighlight } from "./components/ProjectHighlight";
 import { MainFooter } from "../../ui/footer/MainFooter";
 import {
   BrandImage,
@@ -15,6 +15,7 @@ import {
   Paragraph,
   StyledOverlay,
 } from "./styles/heroSecion.styled";
+import { useNavbar } from "../../ui/navbar/NavBarContext";
 
 export const Container = styled.div`
   @media (min-width: 601px) and (max-width: 1062px) {
@@ -35,17 +36,17 @@ const Main = styled.main`
 `;
 
 export default function Home() {
-  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { isNavOpen } = useNavbar();
   return (
     <section>
       <header>
         <Container>
-          <Navbar isNavOpen={isNavOpen} onNavOpen={setIsNavOpen} />
+          <Navbar />
           <HeroSection>
             <HeroContent
-              initial={{ x: -100 }}
-              animate={{ x: 0 }}
-              transition={{ duration: 1 }}
+              initial={{ x: -100, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8 }}
             >
               <Heading as="h1" type="heroMargin">
                 Award-winning custom designs and digital branding solutions
@@ -62,7 +63,6 @@ export default function Home() {
             <BrandImage>
               <img src="/home/desktop/image-hero-phone.png" />
             </BrandImage>
-            {isNavOpen && <StyledOverlay></StyledOverlay>}
           </HeroSection>
         </Container>
       </header>

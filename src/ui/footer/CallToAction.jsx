@@ -9,9 +9,9 @@ const StyledSection = styled.section`
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url("/web-design/desktop/bg-pattern-intro-web.svg")
+  background: url("/public/shared/desktop/bg-pattern-call-to-action.svg")
     var(--color-peach);
-
+  background-position: 50%;
   border-radius: 15px;
   flex-direction: column;
 

@@ -1,12 +1,16 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import { Paragraph } from "../../home/styles/heroSecion.styled";
+import { useInView } from "react-intersection-observer";
+import { motion } from "motion/react";
 
 const StyledSectionWorld = styled.div`
   display: flex;
   align-items: center;
-  background-color: #fdf3f0;
 
+  background: url("/public/shared/desktop/bg-pattern-two-circles.svg") #fdf3f0;
+  background-repeat: no-repeat;
+  background-position: bottom;
   overflow: hidden;
   margin: 5rem 0;
   ${(props) =>
@@ -56,7 +60,7 @@ const SubTitle = styled(Paragraph)`
   }
 `;
 
-const StyledContent = styled.div`
+const StyledContent = styled(motion.div)`
   @media (max-width: 600px) {
     padding: 5rem 1.5rem;
   }
@@ -98,9 +102,18 @@ export const Source = styled.source`
   width: 100%;
 `;
 
-export function Layout({ title, subtitle, id, image }) {
+export function Layout({ title, subtitle, id, image, position }) {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const containerVariants = {
+    hidden: { x: Number(position), opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
   return (
-    <StyledSectionWorld type={id}>
+    <StyledSectionWorld type={id} ref={ref}>
       <div>
         <StyledImage>
           <Source
@@ -114,7 +127,13 @@ export function Layout({ title, subtitle, id, image }) {
           <img src={`/about/mobile/${image}`} alt={image} />
         </StyledImage>
       </div>
-      <StyledContent type={id}>
+      <StyledContent
+        type={id}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8 }}
+      >
         <Title>{title}</Title>
         <SubTitle>
           {subtitle.split("<br /> <br />").map((part, i) => (

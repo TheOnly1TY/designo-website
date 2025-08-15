@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const StyledLogoImage = styled.img`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 12.25rem;
 
   @media (max-width: var(--small-screen)) {

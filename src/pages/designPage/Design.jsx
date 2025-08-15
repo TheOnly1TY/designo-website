@@ -1,6 +1,10 @@
 import { Link, useParams } from "react-router-dom";
 
-import { Heading, Paragraph } from "../home/styles/heroSecion.styled";
+import {
+  Heading,
+  Paragraph,
+  StyledOverlay,
+} from "../home/styles/heroSecion.styled";
 import { Description } from "../home/styles/CoreValues.styled";
 import { MainFooter } from "../../ui/footer/MainFooter";
 import { Container } from "../Location";
@@ -10,7 +14,6 @@ import {
   Caption,
   Image,
   ProjectName,
-  StyledDesign,
   StyledViewProject,
 } from "../home/styles/productHighlight";
 import {
@@ -22,11 +25,6 @@ import {
   StyledHeading,
   StyledProjectItem,
   StyledSection,
-  // StyledHeading,
-  // HeaderContainer,
-  // StyledProjectItem,
-  // ProjectImage,
-  // ProjectCaption,
   Title,
 } from "./design.styled";
 import styled from "styled-components";
@@ -51,13 +49,29 @@ const designButtons = [
 
 const Btn = styled(Link)`
   position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+
+  &:hover {
+    background-color: rgba(231, 129, 107, 0.5);
+  }
+  transition: all 0.1s ease-in-out;
 `;
 
 export function Design() {
   const { designType } = useParams();
 
   const designData = Data[designType];
-
   const remainButton = designButtons.filter(
     (button) => button.pathName !== designType
   );
@@ -70,7 +84,7 @@ export function Design() {
       </header>
       <main>
         <HeaderContainer>
-          <StyledHeading>
+          <StyledHeading type={designData.title}>
             <Heading as="h1">{designData.title}</Heading>
             <Paragraph>{designData.subtitle}</Paragraph>
           </StyledHeading>
@@ -118,6 +132,7 @@ export function Design() {
                     </span>
                   </StyledViewProject>
                 </Caption>
+                <Overlay></Overlay>
               </Btn>
             ))}
           </Button>

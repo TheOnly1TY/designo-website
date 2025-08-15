@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import styled, { css } from "styled-components";
 
 export const StyledSection = styled.section`
@@ -24,7 +25,7 @@ export const StyledSection = styled.section`
     margin-bottom: 1rem; // temporary margin
   }
 `;
-export const StyledCard = styled.div`
+export const StyledCard = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -13,6 +13,7 @@ export const StyledDesign = styled(Link)`
 `;
 export const DesignContainer = styled.div`
   display: flex;
+  position: relative;
   justify-content: center;
   gap: 24px;
   flex-direction: column;
@@ -45,11 +46,14 @@ export const DesignContainer2 = styled.div`
 `;
 
 export const Image = styled.img`
-  border-radius: 15px;
+  display: block;
   width: 100%;
+  height: 100%;
+  overflow: hidden;
 `;
 
 export const Caption = styled.figcaption`
+  pointer-events: none;
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -65,6 +69,8 @@ export const Caption = styled.figcaption`
   @media (min-width: 1063px) {
     gap: 24px;
   }
+
+  z-index: 10;
 `;
 
 export const ProjectName = styled.h4`

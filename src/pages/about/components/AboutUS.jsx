@@ -1,13 +1,16 @@
 import styled from "styled-components";
 import { Heading, Paragraph } from "../../home/styles/heroSecion.styled";
 import { Source } from "./Layout";
+import { motion } from "motion/react";
+import { useInView } from "react-intersection-observer";
 
 const StyledSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url("/home/desktop/bg-pattern-hero-home.svg") var(--color-peach);
-  background-position: left -100px;
+  background: url("/about/desktop/bg-pattern-hero-about-desktop.svg")
+    var(--color-peach);
+  background-position: left -10rem;
   background-repeat: no-repeat;
   border-radius: 15px;
   overflow: hidden;
@@ -28,7 +31,6 @@ const StyledSection = styled.div`
 
 const StyledImage = styled.picture`
   overflow: hidden;
-
   img {
     display: block;
     width: 100%;
@@ -42,9 +44,10 @@ const StyledImage = styled.picture`
       width: 100vw;
     }
   }
+  blur: 28rem;
 `;
 
-const AboutContent = styled.div`
+const AboutContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -74,9 +77,22 @@ const AboutText = styled(Paragraph)`
 `;
 
 export function AboutUsSection() {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.5,
+  });
+  const containerVariants = {
+    hidden: { x: -100, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
   return (
-    <StyledSection>
-      <AboutContent>
+    <StyledSection ref={ref}>
+      <AboutContent
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8 }}
+      >
         <Heading as="h1">About us</Heading>
         <AboutText>
           Founded in 2010, we are a creative agency that produces lasting

@@ -7,12 +7,14 @@ import Navbar from "../ui/Navbar";
 import { Container } from "./Location";
 import { Heading, Paragraph } from "./home/styles/heroSecion.styled";
 import Footer from "../ui/footer/Footer";
+import { motion } from "motion/react";
 
 const StyledSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url("/home/desktop/bg-pattern-hero-home.svg") var(--color-peach);
+  background: url("/public/contact/desktop/bg-pattern-hero-desktop.svg")
+    var(--color-peach);
   background-position: left -100px;
   background-repeat: no-repeat;
   border-radius: 15px;
@@ -46,7 +48,7 @@ const Main = styled.main`
   }
 `;
 
-const ContactUsContent = styled.div`
+const ContactUsContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -213,7 +215,11 @@ export function ContactFormSection() {
 
   return (
     <StyledSection>
-      <ContactUsContent>
+      <ContactUsContent
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{ duration: 0.8 }}
+      >
         <Heading as="h1">Contact us</Heading>
         <ContactUsText>
           Ready to take it to the next level? Let’s talk about your project or
