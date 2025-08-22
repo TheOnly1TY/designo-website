@@ -75,10 +75,9 @@ const StyledNavLink = styled(NavLink)`
 `;
 
 const StyledNavIcon = styled.figure`
-  cursor: pointer;
-
   @media (min-width: 601px) {
     display: none;
+    cursor: pointer;
   }
 `;
 

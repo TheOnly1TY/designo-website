@@ -3,12 +3,15 @@ import styled from "styled-components";
 
 export const StyledDesign = styled(Link)`
   position: relative;
-  cursor: pointer;
 
   @media (min-width: 601px) and (max-width: 1062px) {
+    cursor: pointer;
     max-width: 786px;
     width: 100%;
     margin: 0 auto;
+  }
+  @media (min-width: 1063px) {
+    cursor: pointer;
   }
 `;
 export const DesignContainer = styled.div`
@@ -29,7 +32,6 @@ export const DesignContainer = styled.div`
     gap: 30px;
   }
 
-  /* New: prevent flex items from pushing layout horizontally */
   overflow-x: hidden;
   max-width: 100%;
 `;
