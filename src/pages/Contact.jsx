@@ -9,11 +9,13 @@ import { Heading, Paragraph } from "./home/styles/heroSecion.styled";
 import Footer from "../ui/footer/Footer";
 import { motion } from "motion/react";
 
+/*---------------- STYLES -----------------*/
+
 const StyledSection = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: url("/public/contact/desktop/bg-pattern-hero-desktop.svg")
+  background: url("/contact/desktop/bg-pattern-hero-desktop.svg")
     var(--color-peach);
   background-position: left -100px;
   background-repeat: no-repeat;

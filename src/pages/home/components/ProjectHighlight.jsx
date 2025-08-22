@@ -12,6 +12,8 @@ import {
   DesignContainer2,
 } from "../styles/productHighlight";
 
+/*---------------- STYLES -----------------*/
+
 const ImageContainerOverlay = styled.div`
   position: relative;
   overflow: hidden;

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -15,7 +14,8 @@ import {
   Paragraph,
   StyledOverlay,
 } from "./styles/heroSecion.styled";
-import { useNavbar } from "../../ui/navbar/NavBarContext";
+
+/*---------------- STYLES -----------------*/
 
 export const Container = styled.div`
   @media (min-width: 601px) and (max-width: 1062px) {
@@ -36,7 +36,6 @@ const Main = styled.main`
 `;
 
 export default function Home() {
-  const { isNavOpen } = useNavbar();
   return (
     <section>
       <header>
@@ -61,7 +60,7 @@ export default function Home() {
               </Link>
             </HeroContent>
             <BrandImage>
-              <img src="/home/desktop/image-hero-phone.png" />
+              <img src="/home/desktop/image-hero-phone.png" alt="hero-image" />
             </BrandImage>
           </HeroSection>
         </Container>

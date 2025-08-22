@@ -12,6 +12,7 @@ export function CoreValuesSection() {
     triggerOnce: true,
     threshold: 0.3,
   });
+
   return (
     <StyledSection ref={ref}>
       <CoreValuesCard

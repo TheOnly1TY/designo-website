@@ -3,6 +3,8 @@ import { MainFooter } from "../ui/footer/MainFooter";
 import Navbar from "../ui/Navbar";
 import { Address } from "../ui/footer/styles/Footer.styled";
 
+/*---------------- STYLES -----------------*/
+
 const StyledLocation = styled.div`
   display: flex;
   justify-content: center;

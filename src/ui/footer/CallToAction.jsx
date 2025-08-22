@@ -2,14 +2,12 @@ import styled from "styled-components";
 import { Button, Paragraph } from "../../pages/home/styles/heroSecion.styled";
 import { Link } from "react-router-dom";
 
-// STILL TO FIX THE BACKGROUND SIZE AND POSTION
-
 const StyledSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: url("/public/shared/desktop/bg-pattern-call-to-action.svg")
+  background: url("/shared/desktop/bg-pattern-call-to-action.svg")
     var(--color-peach);
   background-position: 50%;
   border-radius: 15px;

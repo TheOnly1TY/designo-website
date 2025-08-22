@@ -2,6 +2,9 @@ import styled, { css } from "styled-components";
 import { Logo } from "./Logo";
 import { NavLink } from "react-router-dom";
 import { useNavbar } from "./navbar/NavBarContext";
+import { motion } from "motion/react";
+
+/*---------------- STYLES -----------------*/
 
 const StyledNav = styled.nav`
   position: relative;
@@ -23,7 +26,7 @@ const StyledNav = styled.nav`
   }
 `;
 
-const StyledNavList = styled.ul`
+const StyledNavList = styled(motion.ul)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,6 +82,7 @@ const StyledNavIcon = styled.figure`
   }
 `;
 
+/*---------------- DATA -----------------*/
 const NavList = [
   {
     pathname: "about",
@@ -88,11 +92,13 @@ const NavList = [
     pathname: "location",
     name: "Locations",
   },
+
   {
     pathname: "contact",
     name: "Contact",
   },
 ];
+
 export default function Navbar() {
   const { isNavOpen, handleNavToggle } = useNavbar();
   return (

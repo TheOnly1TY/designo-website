@@ -8,7 +8,7 @@ const StyledSectionWorld = styled.div`
   display: flex;
   align-items: center;
 
-  background: url("/public/shared/desktop/bg-pattern-two-circles.svg") #fdf3f0;
+  background: url("/shared/desktop/bg-pattern-two-circles.svg") #fdf3f0;
   background-repeat: no-repeat;
   background-position: bottom;
   overflow: hidden;

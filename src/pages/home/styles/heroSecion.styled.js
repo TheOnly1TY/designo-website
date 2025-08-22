@@ -38,7 +38,7 @@ export const HeroSection = styled.div`
     flex-direction: row;
     text-align: left;
 
-    margin-bottom: 8rem; // temporary margin
+    margin-bottom: 8rem;
   }
 `;
 
@@ -152,7 +152,7 @@ export const Button = styled.button`
 `;
 
 export const BrandImage = styled.figure`
-  margin-top: -6rem;
+  // margin-top: -2rem;
 
   @media (min-width: 1063px) {
     margin-top: 0rem;
